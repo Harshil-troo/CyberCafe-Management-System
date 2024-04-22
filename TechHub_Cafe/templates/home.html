@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Cyber Cafe Management System{% endblock %}</title>
+    {% block head %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% endblock %}
+</head>
+<body>
+    WELCOME TO CYBER CAFE MANAGEMENT SYSTEM......
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    Copyright @ 2024...
+</body>
+</html>
