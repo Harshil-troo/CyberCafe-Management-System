@@ -5,3 +5,5 @@ from .models import Computer, User,Reservation
 admin.site.register(Computer)
 admin.site.register(User)
 admin.site.register(Reservation)
+
+print("Hello, I am Dhaval Branch Code.")
