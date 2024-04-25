@@ -26,23 +26,16 @@ class User(models.Model):
     id_number = models.CharField(max_length=20)
 
     def __str__(self):
-
         return self.name
 
-class Computer(models.Model):
-    computer_id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
-    computer_specifications = models.TextField()
-    status = models.BooleanField(default=True)
 
-    def __str__(self):
-        return f"{self.computer_id}"
 
 class Reservation(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    computer_id = models.ForeignKey(Computer, on_delete=models.CASCADE)
+    computer_name = models.ForeignKey("device.Computer", on_delete=models.CASCADE,related_name="name",null=True)
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
 
     def __str__(self):
 
-        return f"{self.computer_id.computer_id}"
+        return f"{self.computer_name.computer_name}"

@@ -1,0 +1,39 @@
+{% extends 'home.html' %}
+
+{% block content %}
+  <h1>Computer List</h1>
+  <a href="{% url 'computer_create' %}" id = "create-btn" class="btn btn-primary">Create New Computer</a>
+  <br><br>
+  <table class="table table-striped" border="2px black">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Processor</th>
+        <th>RAM</th>
+        <th>Operating System</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for computer in computers %}
+      <tr>
+        <td>{{ Computer. computer_name }}</td>
+        <td>{{ Computer.processor }}</td>
+        <td>{{ Computer.ram }} GB</td>
+        <td>{{ Computer.operating_system }}</td>
+        <td>{{ Computer.status|yesno:"Active,Inactive" }}</td>
+        <td>
+          <a href="{% url 'computer_update' computer.pk %}" class="btn btn-secondary">Update</a>
+          <a href="{% url 'computer_delete' computer.pk %}" class="btn btn-danger">Delete</a>
+        </td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="6">No computers available.</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
+<link rel="stylesheet" type="text/css" href="device/css/style_list.css">

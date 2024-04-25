@@ -1,0 +1,49 @@
+body {
+	font-family: Arial, sans-serif;
+	scrollbar-width: none;
+
+}
+header {
+	background-color: #007BFF;
+	color: white;
+	padding: 10px;
+	text-align: center;
+    font-family: "Times New Roman", Times, serif;}
+nav ul {
+	background-color: #333;
+	list-style-type: none;
+	padding: 0;
+	overflow: hidden;
+}
+nav ul li {
+	float: left;
+}
+nav ul li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	cursor:pointer;
+}
+nav ul li a:hover {
+	background-color: #111;
+}
+section {
+
+}
+footer {
+	background-color: #333;
+	color: white;
+	text-align: center;
+	padding: 10px;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+#title{
+    position:absolute;
+    background-size: cover;
+    background-position: center center;
+    overflow-y: hidden;
+}

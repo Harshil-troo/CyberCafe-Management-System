@@ -1,21 +1,40 @@
 <!DOCTYPE html>
-{% load static %}
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>{% block title %}Cyber Cafe Management System{% endblock %}</title>
-    {% block head %}
-    <link rel="stylesheet" href="{% static 'users/css/style.css' %}">
-    {% endblock %}
+	<title>Cybercafe Management System</title>
+	<link rel="stylesheet" type="text/css" href="static/css/styles.css">
 </head>
 <body>
-    WELCOME TO CYBER CAFE MANAGEMENT SYSTEM......
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
 
-    Copyright @ 2024...<br>
-    It is {% now "D d M Y" %}
+	<header>
+		<h1>Welcome to TechHUB Cafe</h1>
+	</header>
+	<nav>
+		<ul>
+			<li><a href="#services">Add Computer</a></li>
+			<li><a href="#pricing">Pricing</a></li>
+			<li><a href="#contact">Contact Us</a></li>
+		</ul>
+	</nav>
+
+	<div class="row">
+    <img id = "title" src="static/image/Synthwave_bar_design.jpeg" >
+	</div>
+	<section id="services">
+		<h2>Our Services</h2>
+		<p>Details about the services offered by the cybercafe.</p>
+	</section>
+	<section id="pricing">
+		<h2>Pricing</h2>
+		<p>Details about the pricing of the services offered by the cybercafe.</p>
+	</section>
+	<section id="contact">
+		<h2>Contact Us</h2>
+		<p>Details about how to contact the cybercafe.</p>
+	</section>
+	<footer>
+		<p>Copyright &copy; 2024 Cybercafe Management System</p>
+	</footer>
+
 </body>
 </html>
