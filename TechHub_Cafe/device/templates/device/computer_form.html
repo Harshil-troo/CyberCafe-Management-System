@@ -1,36 +1,33 @@
 {% extends 'home.html' %}
+{% load static %} {% block header %} {{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static 'device/css/style_form.css' %}"> {% endblock %} {% block content %}
+<div class="form-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                <div class="form-container">
+                    <form class="form-horizontal">
+                        <h3 class="title">Computer Form</h3>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" name="name" placeholder=" Computer Name..." value="{{ form.instance.computer_name }}">                        </div>
+                        <div class="form-group">
+                             <input type="text" class="form-control" id="processor" name="processor" placeholder=" Computer Processor..."required value= "{{form.instance.processor}}" >
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control" id="ram" name="ram" placeholder=" Computer RAM(GB).."required value="{{ form.instance.ram }}">
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" id="status" name="status" required>
+                              <option value="1" {% if form.instance.status %} selected {% endif %}> Active</option>
+                              <option value="0" {% if not form.instance.status %} selected {% endif %}> Inactive</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn btn-default">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-{% block content %}
-  <h1>Computer Form</h1>
-  <form method="post">
-    {% csrf_token %}
-    {% if form.instance.pk %}
-      <input type="hidden" name="computer_id" value="{{ form.instance.pk }}">
-    {% endif %}
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" class="form-control" id="name" name="name" required value="{{ form.instance.name }}">
-    </div>
-    <div class="form-group">
-      <label for="processor">Processor</label>
-      <input type="text" class="form-control" id="processor" name="processor" required value="{{ form.instance.processor }}">
-    </div>
-    <div class="form-group">
-      <label for="ram">RAM (GB)</label>
-      <input type="number" class="form-control" id="ram" name="ram" required value="{{ form.instance.ram }}">
-    </div>
-    <div class="form-group">
-      <label for="operating_system">Operating System</label>
-      <input type="text" class="form-control" id="operating_system" name="operating_system" required value="{{ form.instance.operating_system }}">
-    </div>
-    <div class="form-group">
-      <label for="status">Status</label>
-      <select class="form-control" id="status" name="status" required>
-        <option value="1" {% if form.instance.status %} selected {% endif %}>
-            Active</option>
-        <option value="0" {% if not form.instance.status %}selected{% endif %}>Inactive</option>
-      </select>
-    </div>
-    <button type="submit" class="btn btn-primary">Save</button>
-  </form>
 {% endblock %}

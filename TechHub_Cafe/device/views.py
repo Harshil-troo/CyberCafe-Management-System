@@ -4,7 +4,7 @@ from .forms import ComputerForm
 
 def computer_list(request):
     computers = Computer.objects.all()
-    return render(request, 'computer_list.html', {'computers': computers})
+    return render(request, 'device/computer_list.html', {'computers': computers})
 
 def computer_create(request):
     if request.method == 'POST':
@@ -14,7 +14,7 @@ def computer_create(request):
             return redirect('computer_list')
     else:
         form = ComputerForm()
-    return render(request, 'computer_form.html', {'form': form})
+    return render(request, 'device/computer_form.html', {'form': form})
 
 def computer_update(request, pk):
     computer = get_object_or_404(Computer, pk=pk)

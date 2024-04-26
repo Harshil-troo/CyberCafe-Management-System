@@ -4,7 +4,7 @@ body {
 
 }
 header {
-	background-color: #007BFF;
+	background-color: #E5583A;
 	color: white;
 	padding: 10px;
 	text-align: center;
@@ -30,13 +30,16 @@ nav ul li a:hover {
 	background-color: #111;
 }
 section {
+    position : relative;
+    justify-content:center;
+    color: White;
 
 }
 footer {
 	background-color: #333;
 	color: white;
 	text-align: center;
-	padding: 10px;
+	padding: 5px;
 	position: fixed;
 	bottom: 0;
 	width: 100%;
@@ -46,4 +49,7 @@ footer {
     background-size: cover;
     background-position: center center;
     overflow-y: hidden;
+    filter: blur(4px);
+  -webkit-filter: blur(4px);
+
 }

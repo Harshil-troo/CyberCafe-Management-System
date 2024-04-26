@@ -1,37 +1,46 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
+	{% block header %}
 	<title>Cybercafe Management System</title>
-	<link rel="stylesheet" type="text/css" href="static/css/styles.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+	{% endblock %}
 </head>
 <body>
 
 	<header>
 		<h1>Welcome to TechHUB Cafe</h1>
 	</header>
+	{% block content %}
 	<nav>
 		<ul>
-			<li><a href="#services">Add Computer</a></li>
-			<li><a href="#pricing">Pricing</a></li>
+			<li><a href="{% url 'computer_create'  %}">Add Computer</a></li>
+			<li><a href="{% url 'computer_list'%}">Computer List</a></li>
 			<li><a href="#contact">Contact Us</a></li>
 		</ul>
 	</nav>
 
+
 	<div class="row">
-    <img id = "title" src="static/image/Synthwave_bar_design.jpeg" >
-	</div>
-	<section id="services">
+    <img id = "title" src="{% static 'image/Synthwave_bar_design.jpeg' %}" >
+	<div class="container">
+		<section class="centered" id="services">
 		<h2>Our Services</h2>
 		<p>Details about the services offered by the cybercafe.</p>
-	</section>
-	<section id="pricing">
-		<h2>Pricing</h2>
-		<p>Details about the pricing of the services offered by the cybercafe.</p>
-	</section>
-	<section id="contact">
-		<h2>Contact Us</h2>
-		<p>Details about how to contact the cybercafe.</p>
-	</section>
+		</section>
+		<section class="centered" id="pricing">
+			<h2>Pricing</h2>
+			<p>Details about the pricing of the services offered by the cybercafe.</p>
+		</section>
+		<section class="centered" id="contact">
+			<h2>Contact Us</h2>
+			<p>Details about how to contact the cybercafe.</p>
+		</section>
+	</div>
+	</div>
+	{% endblock %}
+
 	<footer>
 		<p>Copyright &copy; 2024 Cybercafe Management System</p>
 	</footer>
