@@ -1,6 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import User
-
+from django.contrib.auth.models import AbstractUser
+from django.utils.translation import gettext_lazy as _
 
 
 AADHAR = "aadhar"
@@ -13,17 +13,20 @@ ID_TYPES = [
     (VOTER,"VOTER"),
 ]
 
-USER_TYPES = [
-    ("USER","USER"),
-    ("ADMIN","ADMIN"),
-]
 
 
-class User(models.Model):
-    user = models.OneToOneField(User,choices=USER_TYPES,on_delete=models.CASCADE)
+
+class User(AbstractUser):
+
+    class UserTypes(models.TextChoices):
+        ADMIN = "ADMIN", _("Admin")
+        CUSTOMER = "CUSTOMER",_("Customer")
+
+
+    user_type = models.CharField(choices=UserTypes)
     name = models.TextField(max_length=50)
     id_proof = models.CharField(max_length=20, choices=ID_TYPES,default="AADHAR")
-    id_number = models.CharField(max_length=20)
+    id_number = models.CharField(max_length=12)
 
     def __str__(self):
         return self.name

@@ -1,15 +1,15 @@
 {% extends 'home.html' %}
 {% load static %} {% block header %} {{ block.super }}
 <link rel="stylesheet" type="text/css" href="{% static 'device/css/style_list.css' %}"> {% endblock %} {% block content %}
-  <h1>Computer List</h1>
+  <h3>Computer List</h3>
   <a href="{% url 'computer_create' %}" id = "create-btn" class="btn btn-primary">Create New Computer</a>
   <br><br>
-  <table class="table table-striped" >
+  <table class="table" >
     <thead>
       <tr>
         <th>Name</th>
         <th>Processor</th>
-        <th>RAM</th>
+        <th>RAM(GB)</th>
         <th>Operating System</th>
         <th>Status</th>
         <th>Actions</th>
@@ -20,7 +20,7 @@
       <tr>
         <td>{{ Computer.computer_name }}</td>
         <td>{{ Computer.processor }}</td>
-        <td>{{ Computer.ram }} GB</td>
+        <td>{{ Computer.ram }}</td>
         <td>{{ Computer.operating_system }}</td>
         <td>{{ Computer.status|yesno:"Active,Inactive" }}</td>
         <td>

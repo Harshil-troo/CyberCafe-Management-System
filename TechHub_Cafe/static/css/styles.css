@@ -49,7 +49,17 @@ footer {
     background-size: cover;
     background-position: center center;
     overflow-y: hidden;
-    filter: blur(4px);
+    filter: blur(8px);
   -webkit-filter: blur(4px);
+
+}
+
+p {
+    color: #bb501a;
+}
+
+h2 {
+    color : #2596be;
+    font-family: "Times New Roman", Times, serif;
 
 }

@@ -1,36 +1,94 @@
-.table table-striped {
+body{
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+.nav-links {
+  list-style-type: none;
+  display: flex;
+  margin-right:-50px;
+}
+
+h3 {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.nav-links li {
+  margin-right: 30px;
+}
+.container a{
+  color: #000;
+  text-decoration: none;
+  font-size: 12px;
+  display: block;
+}
+
+.nav-links li a {
+  color: #000;
+  text-decoration: none;
+  font-size: 12px;
+  display: block;
+
+}
+
+.nav-links li a:hover {
+    color:orange;
+}
+.container a:hover {
+    color:orange;
+}
+
+ul.nav-links.col-md-2{
+    margin-bottom:5px;
+}
+
+
+table {
     border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 0.9em;
-    font-family: sans-serif;
-    min-width: 400px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin: 20px 20px 20px;
+
 }
 
-.table table-striped thead tr {
-    background-color: #009879;
-    color: #ffffff;
-    text-align: left;
+th, td {
+  border:none;
+  padding: 8px;
+  text-align: center;
 }
 
-.table table-striped th,
-.table table-striped td {
-    padding: 12px 15px;
+th {
+  background-color: #d3eaf2;
 }
 
-.table table-striped tbody tr {
-    border-bottom: 1px solid #dddddd;
+tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
 
-.table table-striped tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
+a {
+  border-radius: 20%;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
 
-.table table-striped tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
+#create-btn {
+  border-radius: 20%;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 20px 0px 20px 80px;
+  cursor: pointer;
+
 }
 
-.table table-striped tbody tr.active-row {
-    font-weight: bold;
-    color: #009879;
-}
+
+
+
+
+
