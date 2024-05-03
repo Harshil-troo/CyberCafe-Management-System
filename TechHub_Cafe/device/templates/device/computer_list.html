@@ -1,0 +1,37 @@
+{% extends 'home.html' %}
+{% load static %} {% block header %} {{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static 'device/css/style_list.css' %}"> {% endblock %} {% block content %}
+  <h3>Computer List</h3>
+  <button id = "create-btn" class="btn btn-primary"><i class="fa-solid fa-plus"></i></button>  <br><br>
+  <table class="table" >
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Processor</th>
+        <th>RAM(GB)</th>
+        <th>Operating System</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for computer in computers %}
+      <tr>
+        <td>{{ computer.computer_name }}</td>
+        <td>{{ computer.processor }}</td>
+        <td>{{ computer.ram }}</td>
+        <td>{{ computer.operating_system }}</td>
+        <td>{{ computer.status|yesno:"Active,Inactive" }}</td>
+        <td>
+          <a href="{% url 'computer_update' computer.pk %}" class="btn btn-secondary"><i class="fa-solid fa-pen" style="color: #74C0FC;"></i></a>
+          <a href="{% url 'computer_delete' computer.pk %}" class="btn btn-danger"><i class="fa-solid fa-trash" style="color: #FF0000;"></i></a>
+        </td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="6">No computers available.</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
