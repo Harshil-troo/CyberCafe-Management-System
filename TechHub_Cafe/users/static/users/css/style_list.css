@@ -44,9 +44,9 @@ ul.nav-links.col-md-2{
 }
 
 
-table {
+.table {
     border-collapse: collapse;
-    margin: 20px 190px 20px;
+    margin: 20px 280px 20px;
 
 }
 
@@ -75,7 +75,7 @@ a {
   cursor: pointer;
 }
 
-#create-btn {
+#create {
   border-radius: 20%;
   padding: 5px 10px;
   text-align: center;

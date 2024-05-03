@@ -1,0 +1,35 @@
+{% extends 'home.html' %}
+{% load static %} {% block header %} {{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static 'users/css/style_list.css' %}"> {% endblock %} {% block content %}
+  <h3>User List</h3>
+  <button id = "create" class="btn btn-primary"><i class="fa-solid fa-plus"></i></button>
+  <br><br>
+
+  <table class="table" >
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>ID Proof</th>
+        <th>ID Number</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+      <tr>
+        <td>{{ user.name }}</td>
+        <td>{{ user.id_proof}}</td>
+        <td>{{ user.id_number}}</td>
+        <td>
+          <a href="{% url 'user_update' user.pk %}" class="btn btn-secondary"><i class="fa-solid fa-pen " style="color: #74C0FC;"></i></a>
+          <a href="{% url 'user_delete' user.pk %}" class="btn btn-danger"><i class="fa-solid fa-trash " style="color: #FF0000;"></i></a>
+        </td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="6">No Users available.</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

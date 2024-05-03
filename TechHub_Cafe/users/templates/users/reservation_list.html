@@ -1,0 +1,38 @@
+{% extends 'home.html' %}
+{% load static %} {% block header %} {{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static 'users/css/style_reservation_list.css' %}"> {% endblock %} {% block content %}
+  <h3>Reservation List</h3>
+  <button id = "btn-create" class="btn btn-primary"><i class="fa-solid fa-plus"></i></button>
+  <br><br>
+
+  <table class="table" >
+    <thead>
+      <tr>
+        <th>Customer Name</th>
+        <th>Computer Name</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for reservation in users %}
+      <tr>
+        <td>{{ reservation.user }}</td>
+        <td>{{ reservation.computer_name }}</td>
+        <td>{{ reservation.start_time }}</td>
+        <td>{{ reservation.end_time }}</td>
+        <td>
+          <a href="{% url 'reservation_update' reservation.pk %}" class="btn btn-secondary"><i class="fa-solid fa-pen " style="color: #74C0FC;"></i></a>
+          <a href="{% url 'reservation_delete' reservation.pk %}" class="btn btn-danger"><i class="fa-solid fa-trash" style="color: #FF0000"></i></a>
+        </td>
+      </tr>
+
+      {% empty %}
+      <tr>
+        <td colspan="6">No Reservation available.</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

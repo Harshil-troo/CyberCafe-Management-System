@@ -25,7 +25,7 @@ def computer_update(request, pk):
             return redirect('computer_list')
     else:
         form = ComputerForm(instance=computer)
-    return render(request, 'computer_form.html', {'form': form})
+    return render(request, 'device/computer_form.html', {'form': form})
 
 def computer_delete(request, pk):
     computer = get_object_or_404(Computer, pk=pk)

@@ -2,8 +2,7 @@
 {% load static %} {% block header %} {{ block.super }}
 <link rel="stylesheet" type="text/css" href="{% static 'device/css/style_list.css' %}"> {% endblock %} {% block content %}
   <h3>Computer List</h3>
-  <a href="{% url 'computer_create' %}" id = "create-btn" class="btn btn-primary">Create New Computer</a>
-  <br><br>
+  <button id = "create-btn" class="btn btn-primary"><i class="fa-solid fa-plus"></i></button>  <br><br>
   <table class="table" >
     <thead>
       <tr>
@@ -18,14 +17,14 @@
     <tbody>
       {% for computer in computers %}
       <tr>
-        <td>{{ Computer.computer_name }}</td>
-        <td>{{ Computer.processor }}</td>
-        <td>{{ Computer.ram }}</td>
-        <td>{{ Computer.operating_system }}</td>
-        <td>{{ Computer.status|yesno:"Active,Inactive" }}</td>
+        <td>{{ computer.computer_name }}</td>
+        <td>{{ computer.processor }}</td>
+        <td>{{ computer.ram }}</td>
+        <td>{{ computer.operating_system }}</td>
+        <td>{{ computer.status|yesno:"Active,Inactive" }}</td>
         <td>
-          <a href="{% url 'computer_update' computer.pk %}" class="btn btn-secondary">Update</a>
-          <a href="{% url 'computer_delete' computer.pk %}" class="btn btn-danger">Delete</a>
+          <a href="{% url 'computer_update' computer.pk %}" class="btn btn-secondary"><i class="fa-solid fa-pen" style="color: #74C0FC;"></i></a>
+          <a href="{% url 'computer_delete' computer.pk %}" class="btn btn-danger"><i class="fa-solid fa-trash" style="color: #FF0000;"></i></a>
         </td>
       </tr>
       {% empty %}
